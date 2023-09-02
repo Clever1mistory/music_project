@@ -2,8 +2,9 @@ version: "3.11"
 
 services:
   web-app:
-    build: ..
-    command: sh -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    build: .
+    command: sh -c "python music_catalog/manage.py makemigrations && python music_catalog/manage.py migrate && 
+            python music_catalog/manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/app
     ports:
@@ -14,8 +15,8 @@ services:
   db:
     image: postgres:15
     ports:
-      - "5432:5432"
+      - "5433:5432"
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=referral_system_db
+      - POSTGRES_DB=catalog_db

@@ -7,13 +7,13 @@ class ArtistAdmin(admin.ModelAdmin):
 
 
 class AlbumAdmin(admin.ModelAdmin):
-    list_display = ['artist', 'title', 'year']
+    list_display = ['title', 'artist', 'year']
 
 
-class Songdmin(admin.ModelAdmin):
+class SongAdmin(admin.ModelAdmin):
     list_display = ['track_number', 'name', 'album']
 
 
 admin.site.register(Artist, ArtistAdmin)
 admin.site.register(Album, AlbumAdmin)
-admin.site.register(Song)
+admin.site.register(Song, SongAdmin)
